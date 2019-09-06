@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <SwitchPreference
+        android:key="switch_bt"
+        android:summary="蓝牙"
+        android:title="当前可被附近的蓝牙设备发现" />
+
+</PreferenceScreen>
