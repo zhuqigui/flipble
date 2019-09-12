@@ -25,45 +25,45 @@ public class DataUtils {
     public void handleData(String data){
         dataType=mUtils.dataTypeEvent(data.substring(0,2));
         Log.i(TAG,"data=="+data+"dataTypeResult=="+dataType);
-//        if(dataType==1){
-//            Log.i(TAG,"数据类型为欧拉角类型,开始解析欧拉角数据");
-//            mONay=data.substring(4,10);
-//            mONax=data.substring(10,16);
-//            mONaz=data.substring(16,22);
-//            trigger=data.substring(28,30);
-//            keyDown=data.substring(30,32);
-//            xMoveEvent=data.substring(32,36);
-//            yMoveEvent=data.substring(36,40);
-//            Log.i(TAG,"y=="+ONaUtils.getInstance().getONaYPoint(mONay)); //fcdace
-//            Log.i(TAG,"x=="+ONaUtils.getInstance().getONaYPoint(mONax)); //01a6f5
-//            Log.i(TAG,"z=="+ONaUtils.getInstance().getONaYPoint(mONaz)); //fc3c64
-//
-//            ONaUtils.getInstance().getTriggerStatus(trigger);//255
-//            ONaUtils.getInstance().getKeydownStatus(keyDown);//App 按键按下
-//            ONaUtils.getInstance().getMoveEventStatus(xMoveEvent);
-//            ONaUtils.getInstance().getMoveEventXPoint(xMoveEvent);
-//            ONaUtils.getInstance().getMoveEventYPoint(yMoveEvent);
-//        }else if(dataType==2){
-//            Log.i(TAG,"数据类型为四元数类型，开始解析四元数数据");
-//            fourYuanw=data.substring(4,10);
-//            fourYuany=data.substring(10,16);
-//            fourYuanx=data.substring(16,22);
-//            fourYuanz=data.substring(22,28);
-//            trigger=data.substring(28,30);
-//            keyDown=data.substring(30,32);
-//            xMoveEvent=data.substring(32,36);
-//            yMoveEvent=data.substring(36,40);
-//            Log.i(TAG,"四元数数据w=="+FourYuanNumberUtils.getInstance().getFourYuanDatayValue(fourYuanw)); //fcdace
-//            Log.i(TAG,"四元数数据y=="+FourYuanNumberUtils.getInstance().getFourYuanDatayValue(fourYuany)); //fcdace
-//            Log.i(TAG,"四元数数据x=="+FourYuanNumberUtils.getInstance().getFourYuanDataxValue(fourYuanx)); //01a6f5
-//            Log.i(TAG,"四元数数据z=="+FourYuanNumberUtils.getInstance().getFourYuanDatazValue(fourYuanz)); //fc3c64
-//
-//            FourYuanNumberUtils.getInstance().getTriggerStatus(trigger);//255
-//            FourYuanNumberUtils.getInstance().getKeydownStatus(keyDown);//App 按键按下
-//            FourYuanNumberUtils.getInstance().getMoveEventStatus(xMoveEvent);
-//            FourYuanNumberUtils.getInstance().getMoveEventXPoint(xMoveEvent);
-//            FourYuanNumberUtils.getInstance().getMoveEventYPoint(yMoveEvent);
-//        }else if(dataType==32){
+        if(dataType==1){
+            Log.i(TAG,"数据类型为欧拉角类型,开始解析欧拉角数据");
+            mONay=data.substring(4,10);
+            mONax=data.substring(10,16);
+            mONaz=data.substring(16,22);
+            trigger=data.substring(28,30);
+            keyDown=data.substring(30,32);
+            xMoveEvent=data.substring(32,36);
+            yMoveEvent=data.substring(36,40);
+            Log.i(TAG,"y=="+ONaUtils.getInstance().getONaYPoint(mONay)); //fcdace
+            Log.i(TAG,"x=="+ONaUtils.getInstance().getONaYPoint(mONax)); //01a6f5
+            Log.i(TAG,"z=="+ONaUtils.getInstance().getONaYPoint(mONaz)); //fc3c64
+
+            ONaUtils.getInstance().getTriggerStatus(trigger);//255
+            ONaUtils.getInstance().getKeydownStatus(keyDown);//App 按键按下
+            ONaUtils.getInstance().getMoveEventStatus(xMoveEvent);
+            ONaUtils.getInstance().getMoveEventXPoint(xMoveEvent);
+            ONaUtils.getInstance().getMoveEventYPoint(yMoveEvent);
+        }else if(dataType==2){
+            Log.i(TAG,"数据类型为四元数类型，开始解析四元数数据");
+            fourYuanw=data.substring(4,10);
+            fourYuany=data.substring(10,16);
+            fourYuanx=data.substring(16,22);
+            fourYuanz=data.substring(22,28);
+            trigger=data.substring(28,30);
+            keyDown=data.substring(30,32);
+            xMoveEvent=data.substring(32,36);
+            yMoveEvent=data.substring(36,40);
+            Log.i(TAG,"四元数数据w=="+FourYuanNumberUtils.getInstance().getFourYuanDatayValue(fourYuanw)); //fcdace
+            Log.i(TAG,"四元数数据y=="+FourYuanNumberUtils.getInstance().getFourYuanDatayValue(fourYuany)); //fcdace
+            Log.i(TAG,"四元数数据x=="+FourYuanNumberUtils.getInstance().getFourYuanDataxValue(fourYuanx)); //01a6f5
+            Log.i(TAG,"四元数数据z=="+FourYuanNumberUtils.getInstance().getFourYuanDatazValue(fourYuanz)); //fc3c64
+
+            FourYuanNumberUtils.getInstance().getTriggerStatus(trigger);//255
+            FourYuanNumberUtils.getInstance().getKeydownStatus(keyDown);//App 按键按下
+            FourYuanNumberUtils.getInstance().getMoveEventStatus(xMoveEvent);
+            FourYuanNumberUtils.getInstance().getMoveEventXPoint(xMoveEvent);
+            FourYuanNumberUtils.getInstance().getMoveEventYPoint(yMoveEvent);
+        }//else if(dataType==32){
 //            Log.i(TAG,"数据类型为欧拉角与加速度与陀螺仪类型，开始解析加速度与陀螺仪数据");
 //             mONay=data.substring(3,6);
 //             mONax=data.substring(6,9);

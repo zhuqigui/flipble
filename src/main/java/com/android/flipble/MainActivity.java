@@ -575,18 +575,35 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             return null;
         }
     }
+    /**
+           * int转byte[]
+           * 该方法将一个int类型的数据转换为byte[]形式，因为int为32bit，而byte为8bit所以在进行类型转换时，知会获取低8位，
+           * 丢弃高24位。通过位移的方式，将32bit的数据转换成4个8bit的数据。注意 &0xff，在这当中，&0xff简单理解为一把剪刀，
+           * 将想要获取的8位数据截取出来。
+           * @param i 一个int数字
+           * @return byte[]
+          */
+      public static byte[] int2ByteArray(int i){
+                 byte[] result=new byte[4];
+                 result[0]=(byte)((i >> 24)& 0xFF);
+                 result[1]=(byte)((i >> 16)& 0xFF);
+                 result[2]=(byte)((i >> 8)& 0xFF);
+                 result[3]=(byte)(i & 0xFF);
+                 return result;
+            }
     private void writeData(){
        // BluetoothGattService service=mBluetoothGatt.getService(sDefaultUUIDs[1].getWriteCharacteristic());
         //BluetoothGattCharacteristic charaWrite=service.getCharacteristic(write_UUID_chara);
         BluetoothGattCharacteristic charaWrite=sDefaultUUIDs[1].getWriteCharacteristic(mBluetoothGatt);
-        byte[] data = new byte[0];
-        String content="0x20";//etWriteContent.getText().toString();
-        if (!TextUtils.isEmpty(content)){
-            data=HexUtil.hexStringToBytes(content);
-        }
-        Log.e(TAG, "writeData: length="+data.length);
-        charaWrite.setValue(data);
+        byte[] cmd=new byte[20]; //首先要new出20byte
+        int i=0;
+        cmd[i++]=0x00;
+        cmd[i++]=0x02;
+      charaWrite.setValue(cmd);
         mBluetoothGatt.writeCharacteristic(charaWrite);
+//        if (!TextUtils.isEmpty(content)){
+//            data=HexUtil.hexStringToBytes(content);
+//        }
 //        if (data.length>20){//数据大于个字节 分批次写入
 //            Log.e(TAG, "writeData: length="+data.length);
 //            int num=0;
@@ -609,7 +626,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //            }
 //        }else{
 //            Log.e(TAG, "write Characteristic...");
-//
+//            charaWrite.setValue(data);
+//            mBluetoothGatt.writeCharacteristic(charaWrite);
 //        }
     }
 }
